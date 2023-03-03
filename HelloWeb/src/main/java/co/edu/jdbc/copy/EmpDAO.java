@@ -1,4 +1,4 @@
-package co.edu.jdbc;
+package co.edu.jdbc.copy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
