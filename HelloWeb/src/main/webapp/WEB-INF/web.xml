@@ -27,7 +27,7 @@
   	<url-pattern>/addInfo/*</url-pattern>
   </servlet-mapping>	
   
-  <servlet>
+  <!-- <servlet>
   	<servlet-name>initParam</servlet-name>
   	<servlet-class>co.edu.test.InitParamServlet</servlet-class>
   	<init-param>
@@ -43,7 +43,7 @@
   <servlet-mapping>
   	<servlet-name>initParam</servlet-name>
   	<url-pattern>/initParamTest</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   
   <servlet>
   	<servlet-name>servletConfig</servlet-name>

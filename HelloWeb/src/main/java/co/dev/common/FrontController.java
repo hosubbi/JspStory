@@ -20,6 +20,10 @@ import co.dev.controller.MemberSearchControl;
 import co.dev.controller.MemberSearchFormControl;
 import co.dev.controller.MemberUpdateControl;
 import co.dev.controller.MemberUpdateFormControl;
+import co.dev.controller.NoticeAddControl;
+import co.dev.controller.NoticeFormControl;
+import co.dev.controller.NoticeListControl;
+import co.dev.controller.NoticeSearchControl;
 
 public class FrontController extends HttpServlet{
 	// url 패턴과 실행 컨트롤러 등록.
@@ -36,6 +40,7 @@ public class FrontController extends HttpServlet{
 		map.put("/login.do", new LoginControl());
 		//회원목록.
 		map.put("/memberList.do", new MemberListControl());
+		
 		
 		// 회원 등록 화면
 		map.put("/memberInsertForm.do", new MemberInsertFormControl());
@@ -60,6 +65,12 @@ public class FrontController extends HttpServlet{
 		
 		// 회원 삭제
 		map.put("/memberDelete.do", new MemberDeleteControl());
+		
+		// 공지사항 관련
+		map.put("/noticeList.do", new NoticeListControl()); // 공지사항 목록		
+		map.put("/noticeWriteForm.do", new NoticeFormControl()); // 공지사항 등록 화면
+		map.put("/noticeAdd.do", new NoticeAddControl()); // 공지사항 등록
+		map.put("/noticeSearch.do", new NoticeSearchControl()); // 공지사항상세조회. // getNotice(noticeId), selectNotice(noticeId)
 		
 //		map.put("/empList.do", new EmpListContriol()); // 결과 페이지 : member/empList.jsp
 	}
