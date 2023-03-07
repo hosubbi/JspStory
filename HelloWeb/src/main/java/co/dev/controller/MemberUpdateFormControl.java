@@ -12,12 +12,12 @@ public class MemberUpdateFormControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		// TODO Auto-generated method stub
 		try {
 			req.getRequestDispatcher("WEB-INF/member/memberUpdate.jsp").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }

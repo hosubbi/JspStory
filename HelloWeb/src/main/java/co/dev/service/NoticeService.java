@@ -10,6 +10,6 @@ public interface NoticeService {
 	public List<NoticeVO> noticeList(int page);
 	// 등록.
 	public boolean addNotice(NoticeVO vo);
-	
+	// 단건조회.
 	public NoticeVO getNotice(int nid);
 }
