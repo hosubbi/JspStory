@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
  <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
@@ -10,15 +12,30 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                   
+                                <%
+                                	String id = (String) session.getAttribute("id");
+                                %>
+                                <% if (id == null) {%>
+                                	<!--  로그인 정보가 없을 경우... -->
+                                <li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
+                                <%} else {%>
+                               		<!--  로그인 정보가 있을 경우... -->
+                                <li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
+                                <%} %>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                	<%if (id != null) {%>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">welcome [<%=id %>)]</a>
+                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#!">Action</a>
                                         <a class="dropdown-item" href="#!">Another action</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#!">Something else here</a>
                                     </div>
+                                    <%} else{%>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">welcome [guest]</a>
+                                    <%} %>
+                                   
                                 </li>
                             </ul>
                         </div>

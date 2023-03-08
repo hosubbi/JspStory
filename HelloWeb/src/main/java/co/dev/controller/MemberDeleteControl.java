@@ -24,6 +24,7 @@ public class MemberDeleteControl implements Control {
 		System.out.println("입력: " + vo);
 		
 		MemberService service = new MemberServiceImpl();
+	
 		boolean result = service.removeMember(id);
 		
 		if(result) {
