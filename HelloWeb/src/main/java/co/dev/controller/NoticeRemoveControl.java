@@ -17,6 +17,14 @@ public class NoticeRemoveControl implements Control {
 		vo.setNoticeId(num);
 		
 		NoticeService service = new NoticeServiceMybatis();
+		
+		int result = service.noticeRemove(num);
+		
+		if(result != 0) {
+			req.setAttribute("message", "삭제성공");
+		} else {
+			req.setAttribute("message", "삭제실패");
+		}
 	}
 
 }

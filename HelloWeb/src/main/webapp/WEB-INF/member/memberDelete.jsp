@@ -1,18 +1,21 @@
 <%@page import="co.dev.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<%@ include file="../includes/sidebar.jsp" %>
-	<%@ include file="../includes/top.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   
+ <jsp:include page="../includes/sidebar.jsp"></jsp:include>
+ <jsp:include page="../includes/top.jsp"></jsp:include>
 	<h3>회원삭제조회(memberUpdate.jsp)</h3>
 	<%
 		MemberVO member = (MemberVO) request.getAttribute("vo");
 		String message = (String) request.getAttribute("message");
-		if(message != null){
+		//if(message != null){
 	%>
-		<p><%=message %></p>
+	<c:if test="${massage != null }">	
+		<p>${massage }</p>
+	</c:if>
 	<%
-		}
+		//}
 	%>
 	<form action="memberSearch.do">
 		<input type="hidden" name="job" value="delete">
@@ -32,4 +35,4 @@
 	<%
 	}
 	%>
-	<%@ include file="../includes/footer.jsp" %>
+	<jsp:include page="../includes/footer.jsp"></jsp:include>
