@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.MemberListControl;
 import co.prod.controller.MembersControl;
+import co.prod.controller.ProductInfoControl;
+import co.prod.controller.ProductListControl;
 
 public class FrontController extends HttpServlet{
 	
@@ -25,6 +27,12 @@ public class FrontController extends HttpServlet{
 		// url <-> control
 		map.put("/memberList.do", new MemberListControl());
 		map.put("/members.do", new MembersControl());
+		
+		// 상품목록.
+		map.put("/productList.do", new ProductListControl());
+		// 상품한건정보.
+		map.put("/productInfo.do", new ProductInfoControl());
+		
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,13 +45,14 @@ public class FrontController extends HttpServlet{
 		System.out.println("do page:" + page);
 		
 		Control command = map.get(page);
-		String viewPage = command.exec(req, resp);
+		String viewPage = command.exec(req, resp); // product/productList.tile
 		
-		if(viewPage.endsWith(".jsp")) {
-			viewPage = "./" + viewPage;
-//		} else if (viewPage.endsWith(".tiles")) {
+		if(viewPage.endsWith(".jsp")) { // memberList.co(...jsp)
+			viewPage = "/WEB-INF/views/" + viewPage;
+//		} else if (viewPage.endsWith(".tiles")) { // members.do(...tiles)
+			//viewPage = "./" + viewPage;
 		}
-		
+		// 페이지 재지정.
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
 		

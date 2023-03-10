@@ -54,8 +54,6 @@ public class NoticeAddControl implements Control {
 				}
 			}
 			
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
