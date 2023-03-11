@@ -34,40 +34,40 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8">
-            <form action="bookAdd.do" method="post" enctype="multipart/form-data">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>도서코드</td>
-                            <td><input type="text" name="code"></td>
-                        </tr>
-                        <tr>
-                            <td>도서명</td>
-                            <td><input type="text" name="title"></td>
-                        </tr>
-                        <tr>
-                            <td>저자</td>
-                            <td><input type="text" name="author"></td>
-                        </tr>
-                        <tr>
-                            <td>출판사</td>
-                            <td><input type="text" name="press"></td>
-                        </tr>
-                        <tr>
-                            <td>도서평</td>
-                            <td><input type="text" name="desc"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>판매가</td>
-                            <td><input type="number" name="price"></td>
-                        </tr>
-                        <tr>
-                            <td align="center" colspan="2">
-                                <input class="btn btn-primary" type="submit" value="등록">
-                                <input class="btn btn-warning" type="reset" value="초기화"></td>
-                        </tr>
-                    </tbody>
-                </table>
+	            <form action="bookAdd.do" method="post">
+	                <table class="table">
+	                    <tbody>
+	                        <tr>
+	                            <td>도서코드</td>
+	                            <td><input type="text" name="code"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>도서명</td>
+	                            <td><input type="text" name="title"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>저자</td>
+	                            <td><input type="text" name="author"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>출판사</td>
+	                            <td><input type="text" name="press"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>도서평</td>
+	                            <td><textarea cols="30" rows="5" name="desc"></textarea></td>
+	                        </tr>
+	                        <tr>
+	                            <td>판매가</td>
+	                            <td><input type="number" name="price"></td>
+	                        </tr>
+	                        <tr>
+	                            <td align="center" colspan="2">
+	                                <input class="btn btn-primary" type="submit" value="등록">
+	                                <input class="btn btn-warning" type="reset" value="초기화"></td>
+	                        </tr>
+	                    </tbody>
+               	 	</table>
                 </form>
             </div>
         </div>
@@ -80,7 +80,7 @@
     let title = document.querySelector('input[name="title"]').value;
     let author = document.querySelector('input[name="author"]').value;
     let press = document.querySelector('input[name="press"]').value;
-    let desc = document.querySelector('input[name="desc"]').value;
+    let desc = document.querySelector('textarea[name="desc"]').textContent;
     let price = document.querySelector('input[name="price"]').value;
 
     let isOk = true;

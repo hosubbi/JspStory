@@ -2,11 +2,9 @@ package co.yedam.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import co.yedam.common.Command;
 import co.yedam.service.BookService;
@@ -17,20 +15,19 @@ public class BoodAddControl implements Command {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
 		String code = request.getParameter("code");
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String press = request.getParameter("press");
 		String desc = request.getParameter("desc");
-		int price;
+		int price = 0;
 		if(request.getParameter("price") == null) {
 			price = 0;
 		}else {
 			price = Integer.parseInt(request.getParameter("price"));
 		}
-		
-		
 		
 		BookVO vo = new BookVO();
 		vo.setBookCode(code);
@@ -40,9 +37,8 @@ public class BoodAddControl implements Command {
 		vo.setBookDesc(desc);
 		vo.setBookPrice(price);
 		
+		
 		BookService service = new BookServiceMybatis();
-		boolean result = service.addBook(vo);
-		System.out.println(result);
 		if (service.addBook(vo)) {
 			// 정상 처리.
 			response.sendRedirect("bookList.do");
@@ -50,8 +46,7 @@ public class BoodAddControl implements Command {
 			
 			try {
 				request.getRequestDispatcher("WEB-INF/book/bookAddForm.jsp").forward(request, response);
-			} catch (ServletException |IOException e) {
-			
+			} catch (ServletException e) {
 				e.printStackTrace();
 			}
 		}

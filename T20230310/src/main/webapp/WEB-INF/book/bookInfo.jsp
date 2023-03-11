@@ -39,39 +39,19 @@
 				  BookVO vo = (BookVO) request.getAttribute("book");
 				%>
 				${book }
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>도서코드</td>
-                            <td><input type="text" name="code" value="${book.bookCode }"></td>
-                        </tr>
-                        <tr>
-                            <td>책제목</td>
-                            <td><input type="text" name="title" value="${book.bookTitle }"></td>
-                        </tr>
-                        <tr>
-                            <td>저자</td>
-                            <td><input type="text" name="author" value="${book.bookAuthor }"></td>
-                        </tr>
-                        <tr>
-                            <td>출판사</td>
-                            <td><input type="text" name="press" value="${book.bookPress }"></td>
-                        </tr>
-                        <tr>
-                            <td>도서평</td>
-                            <td><textarea cols="30" rows="5" name="desc">${book.bookDesc }</textarea></td>
-                        </tr>
-                        <tr>
-                            <td>판매가</td>
-                            <td><input type="text" name="price" value="${book.bookPrice }"></td>
-                        </tr>
-                        <tr>
-                            <td align="center" colspan="2">
-                                <input class="btn btn-primary" type="button" value="수정">
-                                <input class="btn btn-warning" type="button" value="삭제"></td>
-                        </tr>
-                    </tbody>
-                </table>
+				<form action="bookInfo.do">
+	                <table class="table">
+	                    <tbody>
+	                        <tr>
+	                            <td>도서코드</td>
+	                            <td><input type="text" name="code" value="bookCode"></td>
+	                        </tr>
+	                            <td align="center" colspan="2">
+	                                <input class="btn btn-primary" type="button" value="상세보기">
+	                        </tr>
+	                    </tbody>
+	                </table>
+                </form>
             </div>
         </div>
     </div>

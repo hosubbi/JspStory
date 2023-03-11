@@ -9,7 +9,8 @@
   	</select>
 	
 	<insert id="insertBook" parameterType="co.yedam.vo.BookVO">
-	    insert into book(book_code, book_title, book_author, book_press, book_desc, book_price) values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookDesc}, #{bookPrice})
+	    insert into book (book_code, book_title, book_author, book_press, book_desc, book_price) 
+	    values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookDesc}, #{bookPrice})
   	</insert>
 	
 </mapper>
