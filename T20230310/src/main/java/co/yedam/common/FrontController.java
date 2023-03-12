@@ -14,6 +14,7 @@ import co.yedam.controller.BoodAddControl;
 import co.yedam.controller.BoodInfoControl;
 import co.yedam.controller.BookAddForm;
 import co.yedam.controller.BookListControl;
+import co.yedam.controller.BookSearchControl;
 
 public class FrontController extends HttpServlet {
 
@@ -34,7 +35,10 @@ public class FrontController extends HttpServlet {
 		map.put("/bookAddForm.do", new BookAddForm()); // 등록화면
 		map.put("/bookAdd.do", new BoodAddControl()); // 등록처리
 		map.put("/bookInfo.do", new BoodInfoControl()); // 상세보기
+		map.put("/bookSearch.do", new BookSearchControl());
 	}
+
+	
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

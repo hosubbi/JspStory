@@ -19,7 +19,5 @@ public class BoodInfoControl implements Command {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

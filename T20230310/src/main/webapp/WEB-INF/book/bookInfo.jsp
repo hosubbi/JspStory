@@ -1,7 +1,6 @@
 <%@page import="co.yedam.vo.BookVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,27 +34,32 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8">
-				<%
-				  BookVO vo = (BookVO) request.getAttribute("book");
-				%>
-				${book }
-				<form action="bookInfo.do">
-	                <table class="table">
-	                    <tbody>
-	                        <tr>
-	                            <td>도서코드</td>
-	                            <td><input type="text" name="code" value="bookCode"></td>
-	                        </tr>
-	                            <td align="center" colspan="2">
-	                                <input class="btn btn-primary" type="button" value="상세보기">
-	                        </tr>
-	                    </tbody>
-	                </table>
-                </form>
+            <%
+ 			 BookVO vo = (BookVO) request.getAttribute("book");
+			%>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        
+                            <td>도서코드</td>
+                          	<form action="bookSearch.do">
+                            <td><input type="text" name="bookCode"></td>
+                        </tr>                                             
+                        <tr>                                             
+                            <td align="center" colspan="2">
+                              <input class="btn btn-primary" type="submit" value="조회">
+                        	</form>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
+	
+	
+	
+	
     <!-- Footer-->
     <jsp:include page="../includes/footer.jsp"></jsp:include>
 
