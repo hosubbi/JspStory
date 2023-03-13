@@ -79,11 +79,11 @@
 	
 	// 등록버튼 클릭이벤트.
 	document.getElementById('addBtn').addEventListener('click', function() {
-		let id = '';
-		let nm = '';
-		let pw = '';
-		let ma = '';
-		let au = '';
+		let id = document.querySelector('input[id="id"]').value;
+		let nm = document.querySelector('input[id="name"]').value;
+		let pw = document.querySelector('input[id="pass"]').value;
+		let ma = document.querySelector('input[id="mail"]').value;
+		let au = document.querySelector('input[id="auth"]').value;
 		
 		
 		if (!id || !nm || !pw || !ma || !au) {
@@ -94,7 +94,7 @@
 		fetch('memberAddAjax.do', {
 			method: 'post',
 			headers: {'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'id=?&name=?&pw=?&mail=?&auth=?'
+			body: 'id='+id+'&name='+nm+'&pw='+pw+'&mail='+ma+'&auth='+au
 		})
 		.then(resolve => resolve.json())
 		.then(result => {
